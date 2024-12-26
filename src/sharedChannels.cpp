@@ -1,3 +1,4 @@
+//MPK (System)
 #include "../include/sharedChannels.hpp"
 
 SharedChannels* SharedChannels::mySharedChannels = nullptr;
@@ -21,6 +22,7 @@ void SharedChannels::addChannel(int channelID){
     QueueClass* newQueue = new QueueClass(5,1);
     Channel newChannel = {channelID, newQueue};
     channels.push_back(newChannel);
+    std::cout << "Channel added with ID: " << channelID << std::endl;
 }
 
 void SharedChannels::deleteChannel(int channelID){

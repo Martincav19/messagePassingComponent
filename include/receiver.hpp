@@ -4,25 +4,30 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <thread>
+#include <functional>
 #include "./sharedChannels.hpp"
 
 class ReceiverClass {
 public:
     // Constructors
-    ReceiverClass(int);
+    ReceiverClass(int, std::function<void(ReceiverClass*)>);
 
     // Destructor
     ~ReceiverClass();
 
     // Member functions
     void joinToChannel(int);
-    std::vector<std::string> read();
-
+    void start(std::vector<std::thread>* threads);
+    std::string read();
+    
 private:
-    // Member variables
+    // Variables
     int receiverID;
     Channel* receiverChannel;
 
+    // Functions
+    std::function<void(ReceiverClass*)> grayFunc;
 };
 
 #endif // RECEIVER_CLASS

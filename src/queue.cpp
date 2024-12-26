@@ -1,3 +1,4 @@
+//Message Queue
 #include "../include/queue.hpp"
 
 QueueClass::QueueClass(int slotsNumber,int elementsPerSlot){
@@ -5,16 +6,8 @@ QueueClass::QueueClass(int slotsNumber,int elementsPerSlot){
     this->elementsPerSlot = elementsPerSlot;
 }
 
-void QueueClass::enqueue(std::vector<std::string> slot){
-    if(slot.size() > this->elementsPerSlot){
-        //Do nothig for the moment, in the future print error
-    }
-    else if(this->queue.size() >= this->slotsNumber){
-        //Do nothing for the momoent, in the future print error
-    }
-    else{
-        this->queue.push_back(slot);
-    }
+void QueueClass::enqueue(std::string slot){
+    this->queue.push_back(slot);
 }
 
 void QueueClass::dequeue(){
@@ -26,9 +19,10 @@ void QueueClass::dequeue(){
     }
 }
 
-std::vector<std::string> QueueClass::getFront(){
+std::string QueueClass::getFront(){
     if(this->queue.empty()){
         //Do nothing for the moment, in the future print error
+        return "";
     }
     else{
         return this->queue.front();

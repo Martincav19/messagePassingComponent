@@ -11,14 +11,14 @@ public:
     QueueClass(int,int);
     ~QueueClass();
 
-    void enqueue(std::vector<std::string>);
+    void enqueue(std::string);
     void dequeue(void);
-    std::vector<std::string> getFront();
+    std::string getFront();
 
 private:
     // Member variables
     int receiverID;
-    std::vector<std::vector<std::string>> queue;
+    std::vector<std::string> queue;
     int slotsNumber;
     int elementsPerSlot;
 };
